@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const User = require("../models/userModel");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs"); // for encrypting the password
 const jwt = require("jsonwebtoken");
 const authMiddleware = require("../middlewares/authMiddleware");
 
@@ -8,6 +8,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
 
 router.post("/register", async (req, res) => {
   try {
+    // first scenerio
     // check if user already exists
     const userExists = await User.findOne({ email: req.body.email });
     if (userExists) {
@@ -17,6 +18,7 @@ router.post("/register", async (req, res) => {
     }
 
     // hash password
+    // define salt using genSalt method
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
     req.body.password = hashedPassword;
@@ -51,8 +53,8 @@ router.post("/login", async (req, res) => {
 
     // check password
     const validPassword = await bcrypt.compare(
-      req.body.password,
-      user.password
+      req.body.password,  // normal password
+      user.password      // hashed password
     );
     if (!validPassword) {
       return res
@@ -69,6 +71,7 @@ router.post("/login", async (req, res) => {
       success: true,
       data: token,
     });
+
   } catch (error) {
     res.status(500).send({
       message: error.message,

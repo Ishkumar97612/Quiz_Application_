@@ -17,6 +17,7 @@ import { useSelector } from "react-redux";
 import WriteExam from "./pages/user/WriteExam";
 import UserReports from "./pages/user/UserReports";
 import AdminReports from "./pages/admin/AdminReports";
+import MyBoomarks from "./pages/user/MyBookmarks";
 
 function App() {
   const { loading } = useSelector((state) => state.loader);
@@ -35,6 +36,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/user/my-bookmark"
+            element={
+              <ProtectedRoute>
+                <MyBoomarks />
               </ProtectedRoute>
             }
           />

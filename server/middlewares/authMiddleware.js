@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
-
+// req- to get tokens
+//res - message send to the frontend
+// next - if everthing works, user object send to frontend
 module.exports = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];

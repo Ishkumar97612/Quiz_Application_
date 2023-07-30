@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
+// collection_name
 const userModel = mongoose.model("users", userSchema);
 
 module.exports = userModel;

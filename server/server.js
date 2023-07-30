@@ -1,3 +1,4 @@
+// expressjs server
 const express = require("express");
 const app = express();
 require("dotenv").config();
@@ -7,7 +8,6 @@ const dbConfig = require("./config/dbConfig");
 const usersRoute = require("./routes/usersRoute");
 const examsRoute = require("./routes/examsRoute");
 const resportsRoute = require("./routes/reportsRoute");
-
 
 app.use("/api/users", usersRoute);
 app.use("/api/exams", examsRoute);

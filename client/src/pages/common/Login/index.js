@@ -9,6 +9,18 @@ function Login() {
   const dispatch = useDispatch();
   const onFinish = async (values) => {
     try {
+      if(values.email===undefined && values.name)
+      {
+        message.error("Enter your valid credentials");
+        return;
+      }
+
+      if(values.email===undefined)
+      {
+        message.error("Enter your valid email");
+        return;
+      }
+      
       dispatch(ShowLoading());
       const response = await loginUser(values);
       dispatch(HideLoading());
@@ -29,10 +41,12 @@ function Login() {
     <div className="flex justify-center items-center h-screen w-screen bg-primary">
       <div className="card w-400 p-3 bg-white">
         <div className="flex flex-col">
+          
           <div className="flex">
             <h1 className="text-2xl">Quiz - LOGIN <i className="ri-login-circle-line"></i></h1>
             
           </div>
+
           <div className="divider"></div>
           <Form layout="vertical" className="mt-2" onFinish={onFinish}>
             <Form.Item name="email" label="Email">

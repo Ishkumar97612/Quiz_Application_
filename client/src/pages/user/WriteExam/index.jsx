@@ -96,6 +96,24 @@ function WriteExam() {
     setIntervalId(intervalId);
   };
 
+  const handleBookMarkClick = () => {
+    console.log('selected',selectedQuestionIndex,examData)
+    const sampleObj = {
+      question: questions[selectedQuestionIndex]?.name,
+      options: questions[selectedQuestionIndex]?.options,
+      correctOption: questions[selectedQuestionIndex]?.correctOption
+    }
+    console.log(sampleObj)
+    const bookmarkList = JSON.parse(localStorage.getItem(`bookmark-test-data`))
+    if(!bookmarkList){
+      localStorage.setItem(`bookmark-test-data`,JSON.stringify([sampleObj]));
+    }
+    else{
+      bookmarkList.push(sampleObj)
+      localStorage.setItem(`bookmark-test-data`,JSON.stringify(bookmarkList))
+    }
+  }
+
   useEffect(() => {
     if (timeUp && view === "questions") {
       clearInterval(intervalId);
@@ -125,6 +143,7 @@ function WriteExam() {
 
         {view === "questions" && (
           <div className="flex flex-col gap-2">
+            <button onClick={handleBookMarkClick}>Bookmark</button>
             <div className="flex justify-between">
               <h1 className="text-2xl">
                 {selectedQuestionIndex + 1} :{" "}

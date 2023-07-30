@@ -28,6 +28,7 @@ function Register() {
         message.error("Enter your valid email");
         return;
       }
+      
       if(values.password===undefined)
       {
         message.error("Enter your valid password");
