@@ -1,0 +1,31 @@
+$color_1: white;
+$background-color_1: var(#0F3460);
+$background-color_2: #fff;
+$background-color_3: var(#6fbf71);
+$background-color_4: var(#e47943);
+
+&:root {
+	--primary: #0F3460;
+	--secondary: #ff5722;
+	--success: #6fbf71;
+	--info: #00bcd4;
+	--warning: #e47943;
+	--danger: #f44336;
+	--light: #f1f1f1;
+	--dark: #212121;
+}
+.bg-primary {
+	background-color: $background-color_1 !important;
+}
+.bg-white {
+	background-color: $background-color_2 !important;
+}
+.text-white {
+	color: $color_1 !important;
+}
+.bg-success {
+	background-color: $background-color_3;
+}
+.bg-error {
+	background-color: $background-color_4;
+}

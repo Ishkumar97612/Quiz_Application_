@@ -1,10 +1,10 @@
 import { Button } from "antd";
+import "./stylesheet/alignments.css";
+import "./stylesheet/textelements.css";
+import "./stylesheet/custom-components.css";
+import "./stylesheet/form-elements.css";
+import "./stylesheet/layout.css";
 import "./stylesheets/theme.css";
-import "./stylesheets/alignments.css";
-import "./stylesheets/textelements.css";
-import "./stylesheets/custom-components.css";
-import "./stylesheets/form-elements.css";
-import "./stylesheets/layout.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/common/Login";
 import Register from "./pages/common/Register";
